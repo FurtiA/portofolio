@@ -1,8 +1,9 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import { NTR } from "next/font/google";   // swap Inter → NTR
+import { Inter, Playfair_Display } from "next/font/google";
 
-const ntr = NTR({ weight: "400", subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata = {
   title: "furtuna's portfolio",
@@ -12,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${ntr.className} bg-[#0a192f] text-[#ccd6f6] antialiased`}>
+      <body className={`${inter.className} bg-[#FAFAFA] text-[#2C2C2C]`}>
         <Navbar />
         {children}
       </body>
