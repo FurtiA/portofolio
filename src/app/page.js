@@ -161,7 +161,7 @@ export default function Home() {
         </ScrollFade>
 
         <div className="grid gap-6 grid-cols-2 md:grid-cols-4 w-full">
-          {["python", "javascript", "react.js", "next.js", "node.js", "html / css", "mysql", "git / github"].map(
+          {["Python","Java", "Javascript", "React.js", "Next.js", "Node.js", "HTML / CSS", "Mysql", "Git / Github","Oracle","AWS","C/ C++"].map(
             (tool, i) => (
               <ScrollFade key={tool} direction="up" delay={i * 0.1}>
                 <div className="bg-[#f5f5f5] p-5 rounded-xl text-center hover:scale-105 transition-all shadow-sm hover:shadow-md border border-[#e5e5e5]">
@@ -199,38 +199,74 @@ export default function Home() {
         </ScrollFade>
       </section>
 
-      {/* PROJECTS */}
-      <section
-        id="projects"
-        className="min-h-[70vh] w-full flex flex-col items-start justify-center px-10 md:px-20 mt-16"
-      >
-        <ScrollFade direction="up">
-          <h2
-            className={`text-3xl md:text-4xl font-medium mb-8 text-[#002B5B] ${playfair.className}`}
-          >
-            projects
-          </h2>
-        </ScrollFade>
+   {/* PROJECTS */}
+<section
+  id="projects"
+  className="min-h-[70vh] w-full flex flex-col items-start justify-center px-10 md:px-20 mt-16"
+>
+  <ScrollFade direction="up">
+    <h2
+      className={`text-3xl md:text-4xl font-medium mb-8 text-[#002B5B] ${playfair.className}`}
+    >
+      projects
+    </h2>
+  </ScrollFade>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
-          {[1, 2, 3].map((i) => (
-            <ScrollFade key={i} direction="up" delay={i * 0.1}>
-              <div className="rounded-2xl bg-[#f5f5f5] p-6 shadow-sm hover:shadow-md hover:-translate-y-2 transition-all border border-[#e5e5e5]">
-                <h4
-                  className={`text-xl font-medium text-[#00BFA6] mb-3 ${playfair.className}`}
-                >
-                  project {i}
-                </h4>
-                <p
-                  className={`text-[#3a3a3a] text-[1rem] leading-relaxed ${inter.className}`}
-                >
-                  placeholder for a future project — something visual, smart, and thoughtfully coded.
-                </p>
-              </div>
-            </ScrollFade>
-          ))}
-        </div>
-      </section>
+  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+    {[
+      { id: 1, title: "Smart Vision", note: "AI-based image recognition using Python & OpenCV.", img: "/project1.jpg", link: "https://github.com/FurtiA/smart-vision" },
+      { id: 2, title: "Portfolio Design", note: "A minimalist Next.js portfolio built with Framer Motion.", img: "/project2.jpg", link: "https://github.com/FurtiA/portfolio" },
+      { id: 3, title: "DataFlow", note: "Interactive data visualization dashboard using React & D3.js.", img: "/project3.jpg", link: "https://github.com/FurtiA/dataflow" },
+      { id: 4, title: "EcoShop", note: "Sustainable e-commerce prototype focused on green products.", img: "/project4.jpg", link: "https://github.com/FurtiA/ecoshop" },
+      { id: 5, title: "FitTrack", note: "Personal fitness tracker app powered by Node.js & MongoDB.", img: "/project5.jpg", link: "https://github.com/FurtiA/fittrack" },
+      { id: 6, title: "AI Journal", note: "A digital journaling app with sentiment analysis.", img: "/project6.jpg", link: "https://github.com/FurtiA/aijournal" },
+      { id: 7, title: "MoodLens", note: "Face-emotion detection app using TensorFlow & React.", img: "/project7.jpg", link: "https://github.com/FurtiA/moodlens" },
+      { id: 8, title: "BookNest", note: "A cozy web app for discovering & saving book lists.", img: "/project8.jpg", link: "https://github.com/FurtiA/booknest" },
+      { id: 9, title: "Weatherly", note: "Weather forecast web app using OpenWeather API.", img: "/project9.jpg", link: "https://github.com/FurtiA/weatherly" },
+    ].map((project, i) => (
+      <ScrollFade key={project.id} direction="up" delay={i * 0.05}>
+        <motion.a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 120, damping: 14 }}
+          className="group relative rounded-2xl overflow-hidden shadow-sm border border-[#e5e5e5] bg-[#f5f5f5] cursor-pointer"
+        >
+          {/* Project Image */}
+          <img
+            src={project.img}
+            alt={project.title}
+            className="w-full h-64 object-cover rounded-2xl group-hover:brightness-90 transition-all duration-500"
+          />
+
+          {/* Sliding Transparent Card */}
+          <motion.div
+            initial={{ y: "-100%", opacity: 0 }}
+            whileHover={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 90, damping: 15 }}
+            className="absolute top-0 left-0 right-0 bg-[#FFD6DA]/90 backdrop-blur-sm p-5 text-center rounded-b-2xl shadow-md"
+          >
+            <h4
+              className={`text-xl font-semibold text-[#002B5B] mb-1 ${playfair.className}`}
+            >
+              {project.title}
+            </h4>
+            <p
+              className={`text-sm text-[#2C2C2C] leading-relaxed mb-2 ${inter.className}`}
+            >
+              {project.note}
+            </p>
+            <span className="text-[#00BFA6] font-medium text-sm">
+              View on GitHub →
+            </span>
+          </motion.div>
+        </motion.a>
+      </ScrollFade>
+    ))}
+  </div>
+</section>
+
 
       {/* CERTIFICATES */}
       <section
